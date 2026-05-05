@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Arts Portfolio | BSIT Block D</title>
+    <!-- External Assets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --accent: #ff4d00; /* Artistic Vermillion */
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+        /* --- Sidebar Navigation --- */
+        nav {
+            position: fixed;
+            left: 20px; top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: var(--glass);
+            padding: 20px 10px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            display: block;
+            color: var(--text);
+            margin: 20px 0;
+            font-size: 1.2rem;
+            text-align: center;
+            transition: 0.4s;
+            text-decoration: none;
+        }
+
+        nav a:hover { color: var(--accent); transform: scale(1.2); }
+
+        /* --- Sections --- */
+        section {
+            min-height: 100vh;
+            padding: 60px 10% 60px 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, #fff 50%, #f0f0f0 100%);
+        }
+
+        .hero h2 { font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; font-size: clamp(1rem, 2vw, 1.5rem); }
+        .hero h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(3rem, 8vw, 6rem); 
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero .info-bar {
+            border-left: 5px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        .social-hero a {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-right: 25px;
+            transition: 0.3s;
+        }
+
+        .social-hero a:hover { color: var(--accent); }
+
+        /* --- Artist Statement (Table of Contents) --- */
+        .toc-list { list-style: none; }
+        .toc-item {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            cursor: pointer;
+            transition: 0.5s;
+            opacity: 0.3;
+        }
+
+        .toc-item:hover { opacity: 1; padding-left: 30px; color: var(--accent); }
+
+        /* --- Gallery Grid --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding-top: 50px;
+        }
+
+        .art-card {
+            position: relative;
+            background: #fff;
+            padding: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: 0.5s;
+            overflow: hidden;
+        }
+
+        .art-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+
+        .art-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .art-label {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Process Documentation --- */
+        .process-flow {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 40px 0;
+            scrollbar-width: none;
+        }
+
+        .process-img {
+            min-width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* --- Responsive Tweaks --- */
+        @media (max-width: 768px) {
+            nav {
+                top: auto; bottom: 20px; left: 50%;
+                transform: translateX(-50%);
+                flex-direction: row;
+                width: auto; height: auto;
+                padding: 10px 30px;
+                display: flex;
+            }
+            nav a { margin: 0 15px; }
+            section { padding: 40px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home" title="Home"><i class="fas fa-home"></i></a>
+        <a href="#statement" title="Statement"><i class="fas fa-pen-nib"></i></a>
+        <a href="#outputs" title="Works"><i class="fas fa-palette"></i></a>
+        <a href="#process" title="Process"><i class="fas fa-camera"></i></a>
+    </nav>
+
+    <!-- SECTION 1: WELCOME -->
+        <section id="home" class="hero">
+            <div data-aos="fade-right">
+                <h2>Welcome To My Portfolio</h2>
+                <h1>[Daniel L. Lacanilao]</h1>
+                <div class="info-bar">
+                    <p>Reading Visual Arts (RVA) | BSIT Block D</p>
+                    <p>University of Eastern Pangasinan</p>
+                </div>
+                <div class="social-hero">
+                    <a href="https://www.facebook.com/dlacanilao.111505"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/danyell.lcnlao/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dlacanilao4@gmail.com&su=RVA%20Portfolio"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+    </section>
+
+    <!-- SECTION 2: ARTIST STATEMENT (TOC) -->
+    <section id="statement">
+        <h2 style="margin-bottom: 40px; color: var(--accent);">Table of Contents</h2>
+        <div class="toc-list">
+            <div class="toc-item" data-aos="fade-up" onclick="location.href='#statement'">01 Artist Statement</div>
+            <div class="toc-item" data-aos="fade-up" data-aos-delay="100" onclick="location.href='#outputs'">02 Module Outputs</div>
+            <div class="toc-item" data-aos="fade-up" data-aos-delay="200" onclick="location.href='#process'">03 Process Documentation</div>
+        </div>
+        
+        <div style="max-width: 800px; margin-top: 50px;" data-aos="fade-in">
+            <p><i>"Art is the bridge between technical precision and human emotion."</i></p>
+            <p>As an IT student, my journey in Reading Visual Arts has allowed me to blend logic with creativity. This portfolio represents my exploration of visual literacy, from traditional sketching to digital narrative design.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: MODULE OUTPUTS -->
+    <section id="outputs">
+        <h2 style="color: var(--accent);">Module Outputs</h2>
+        <div class="gallery">
+            <div class="art-card" data-aos="zoom-in">
+                <img src="m1.jpg" alt="M1">
+                <div class="art-label">Module 1: Digital Visual World Collage</div>
+            </div>
+            <div class="art-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="m2.jpg" alt="M2">
+                <div class="art-label">Module 2: Observational Drawing</div>
+            </div>
+            <div class="art-card" data-aos="zoom-in" data-aos-delay="200">
+                <img src="m3.jpg" alt="M3">
+                <div class="art-label">Module 3: Abstract Composition</div>
+            </div>
+            <div class="art-card" data-aos="zoom-in">
+                <img src="m4.jpg" alt="M4">
+                <div class="art-label">Module 4: Transformation Series</div>
+            </div>
+            <div class="art-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="m5.jpg" alt="M5">
+                <div class="art-label">Module 5: Filipino-Inspired Pattern</div>
+            </div>
+            <div class="art-card" data-aos="zoom-in" data-aos-delay="200">
+                <img src="m6.jpg" alt="M6-7">
+                <div class="art-label">Module 6–7: Drawing/Painting</div>
+            </div>
+            <div class="art-card" data-aos="zoom-in">
+                <img src="m8.jpg" alt="M8">
+                <div class="art-label">Module 8: Digital Poster</div>
+            </div>
+            <div class="art-card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="m9.jpg" alt="M9">
+                <div class="art-label">Module 9: Photo Narrative Series</div>
+            </div>
+            <div class="art-card" data-aos="zoom-in" data-aos-delay="200">
+                <img src="m10.jpg" alt="M10">
+                <div class="art-label">Module 10: Infographic</div>
+            </div>
+            <div class="art-card" data-aos="zoom-in">
+                <img src="m11.jpg" alt="M11">
+                <div class="art-label">Module 11: Meme Series Creation</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: PROCESS DOCUMENTATION -->
+    <section id="process">
+        <h2 style="color: var(--accent);">Process Documentation</h2>
+        <div class="process-flow" data-aos="fade-left">
+            <img src="p1.jpg" class="process-img" alt="Step 1">
+            <img src="p2.jpg" class="process-img" alt="Step 2">
+            <img src="p3.jpg" class="process-img" alt="Step 3">
+            <img src="p4.jpg" class="process-img" alt="Step 4">
+            <img src="p5.jpg" class="process-img" alt="Step 5">
+        </div>
+        <p style="margin-top: 20px; color: #888;">&larr; Scroll horizontally to see the progress &rarr;</p>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
